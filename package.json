@@ -1,8 +1,8 @@
 {
   "name": "node_nps",
   "version": "1.0.0",
-  "description": "Boilerplate showing the use of ejs as view template engine in a Node.js application",
-  "author": "Jennifer Bland",
+  "description": "",
+  "author": "QNX",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
