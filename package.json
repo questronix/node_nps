@@ -13,7 +13,7 @@
     "ejs",
     "node",
     "express",
-    "boilerplate"
+    "nps"
   ],
   "repository": {
     "type": "git",
