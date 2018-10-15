@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt');
 const mysql = require('mysql');
 
-exports.login = (req, res, next) => {console.log('login');
+exports.login = (req, res, next) => {
   if(req.session.employee_id) {
-    res.redirect('/employees');
+    res.redirect('/dashboard');
   } else {
     errors = req.session.errors;
     req.session.errors = null;
@@ -43,7 +43,7 @@ exports.submit_login = (req, res, next) => {
               req.session.employee_id = row[0].employee_id;
               req.session.email = email;
 
-              res.redirect('/employees');
+              res.redirect('/dashboard');
             } else {
               return res.status(401).json({message: 'Authentication failed'});
             }

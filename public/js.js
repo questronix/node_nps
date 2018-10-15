@@ -8,4 +8,8 @@ $(document).ready(function () {
       $('#registration_form').submit();
     });
 
+    $('#login').on('click', function() {
+      $('#login_form').submit();
+    });
+
 });

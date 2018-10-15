@@ -75,9 +75,11 @@ app.set('view engine', 'ejs');
 // const routes = require('./routes/index.js');
 // routes(app);
 const loginRoutes = require('./routes/login');
+const dashboardRoutes = require('./routes/dashboard');
 const employeeRoutes = require('./routes/employees');
 
 app.use('/', loginRoutes);
+app.use('/dashboard', dashboardRoutes);
 app.use('/employees', employeeRoutes);
 
 // ================================================================
