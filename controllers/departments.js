@@ -24,7 +24,7 @@ exports.get_all_employees = (req, res, next) => {
 
 exports.rate_employee = (req, res, next) => {
   req.getConnection(function(err, connection) {
-    var sql = 'SELECT * FROM employees WHERE employee_id = ' + req.params.employeeId;
+    var sql = 'SELECT *, d.department FROM employees e JOIN departments d ON e.department_id=d.department_id WHERE employee_id = ' + req.params.employeeId;
 
     var query = connection.query(sql, function(error, row) {
       if(error) res.status(500).json({error: error});
