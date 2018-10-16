@@ -5,7 +5,7 @@
 
 <div class="main-footer">
     <div class="table-wrapper">
-       
+
             <table class="table table-hovered">
                 <thead class="thead-dark">
                     <tr>
@@ -18,6 +18,21 @@
                         <th scope="col">Department</th>
                     </tr>
                 </thead>
+                <tbody>
+                  <% for(var i = 0; i < employees.length; i++) { %>
+                    <tr>
+                      <!-- <td><img src='' alt='<%= employees[i].first_name +  employees[i].last_name %>'/></td> -->
+                      <td><%= employees[i].last_name %>, <%= employees[i].first_name %></td>
+                      <td><%= employees[i].email %></td>
+                      <td><%= employees[i].phone %></td>
+                      <td><%= employees[i].mobile %></td>
+                      <td><%= employees[i].address %></td>
+                      <td><%= employees[i].designation %></td>
+                      <td><%= employees[i].department %></td>
+                      <td><a href='departments/rate/<%= employees[i].employee_id %>'>Rate Employee</a></td>
+                    </tr>
+                  <% } %>
+                </tbody>
             </table>
     </div>
 </div>
