@@ -6,7 +6,7 @@ exports.get_all_employees = (req, res, next) => {
     res.redirect('/logout');
   } else {
     req.getConnection(function(err, connection) {
-      var sql = 'SELECT * FROM employees';
+      var sql = 'SELECT *, d.department FROM employees e JOIN departments d ON e.department_id=d.department_id';
 
       var query = connection.query(sql, function(err, rows) {
         res.render('pages/department', {
