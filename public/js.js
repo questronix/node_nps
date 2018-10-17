@@ -4,8 +4,12 @@ $(document).ready(function () {
         $('#sidebar').toggleClass('active');
     });
 
-    $('#registration_submit').on('click', function() {
-      $('#registration_form').submit();
+    $('#add_department_employee_submit').on('click', function() {
+      $('#add_department_employee').submit();
+    });
+
+    $('#add_client_submit').on('click', function() {
+      $('#add_client').submit();
     });
 
     $('#login').on('click', function() {

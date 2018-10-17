@@ -1,0 +1,27 @@
+<% include ../../partials/head %>
+<% include ../../partials/nav %>
+<% include ../../partials/scripts %>
+<% include ../../partials/sidebar %>
+
+<div class="main-footer">
+    <div class="table-wrapper">
+
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Department Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% for(var i = 0; i < departments.length; i++) { %>
+                    <tr>
+                      <td><%= departments[i].department %></td>
+                      <td><a href='departments/view/<%= departments[i].department_id %>'>View Employees</a></td>
+                    </tr>
+                  <% } %>
+                </tbody>
+            </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,11 +1,18 @@
-<% include ../partials/head %>
-<% include ../partials/nav %>
-<% include ../partials/scripts %>
-<% include ../partials/sidebar %>
+<% include ../../partials/head %>
+<% include ../../partials/nav %>
+<% include ../../partials/scripts %>
+<% include ../../partials/sidebar %>
 
 <div class="main-footer">
-    <div class="table-wrapper">
 
+  <% if(success != null) { %>
+    <div class="alert alert-success">
+      <%= success %>
+   </div>
+  <% } %>
+
+    <div class="table-wrapper">
+        <a href="/admin/departments/add/<%= department_id %>">Add New Employee</a>
             <table class="table table-hovered">
                 <thead class="thead-dark">
                     <tr>
@@ -15,7 +22,6 @@
                         <th scope="col">Mobile No#</th>
                         <th scope="col">Address</th>
                         <th scope="col">Designation</th>
-                        <th scope="col">Department</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,8 +34,6 @@
                       <td><%= employees[i].mobile %></td>
                       <td><%= employees[i].address %></td>
                       <td><%= employees[i].designation %></td>
-                      <td><%= employees[i].department %></td>
-                      <td><a href='departments/rate/<%= employees[i].employee_id %>'>Rate Employee</a></td>
                     </tr>
                   <% } %>
                 </tbody>

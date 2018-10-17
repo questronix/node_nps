@@ -1,0 +1,41 @@
+<% include ../../partials/head %>
+<% include ../../partials/nav %>
+<% include ../../partials/scripts %>
+<% include ../../partials/sidebar %>
+
+<div class="main-footer">
+
+  <% if(success != null) { %>
+    <div class="alert alert-success">
+      <%= success %>
+   </div>
+  <% } %>
+
+  <div class="table-wrapper">
+      <a href="/admin/clients/add">Add New Client</a>
+          <table class="table table-hovered">
+              <thead class="thead-dark">
+                  <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Mobile No#</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Project</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <% for(var i = 0; i < clients.length; i++) { %>
+                  <tr>
+                    <td><%= clients[i].name %></td>
+                    <td><%= clients[i].email %></td>
+                    <td><%= clients[i].mobile %></td>
+                    <td><%= clients[i].address %></td>
+                    <td><%= clients[i].project %></td>
+                  </tr>
+                <% } %>
+              </tbody>
+          </table>
+  </div>
+</div>
+</body>
+</html>

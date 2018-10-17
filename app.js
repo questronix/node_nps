@@ -74,13 +74,13 @@ app.set('view engine', 'ejs');
 // ================================================================
 // const routes = require('./routes/index.js');
 // routes(app);
-const loginRoutes = require('./routes/login');
-const dashboardRoutes = require('./routes/dashboard');
-const departmentRoutes = require('./routes/departments');
+const loginRoutes = require('./modules/login/routes/login');
+const adminRoutes = require('./modules/admin/routes/admin');
+const employeeRoutes = require('./modules/employees/routes/employees');
 
 app.use('/', loginRoutes);
-app.use('/dashboard', dashboardRoutes);
-app.use('/departments', departmentRoutes);
+app.use('/admin', adminRoutes);
+app.use('/employees', employeeRoutes);
 
 // ================================================================
 // log errors

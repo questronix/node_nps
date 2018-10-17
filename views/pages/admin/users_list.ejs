@@ -1,0 +1,33 @@
+<% include ../../partials/head %>
+<% include ../../partials/nav %>
+<% include ../../partials/scripts %>
+<% include ../../partials/sidebar %>
+
+<div class="main-footer">
+
+  <% if(success != null) { %>
+    <div class="alert alert-success">
+      <%= success %>
+   </div>
+  <% } %>
+
+    <div class="table-wrapper">
+        <a href="/admin/users/add">Add New User</a>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% for(var i = 0; i < users.length; i++) { %>
+                    <tr>
+                      <td><%= users[i].email %></td>
+                    </tr>
+                  <% } %>
+                </tbody>
+            </table>
+    </div>
+</div>
+</body>
+</html>
