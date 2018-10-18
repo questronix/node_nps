@@ -1,0 +1,53 @@
+<% include ../../partials/head %>
+<% include ../../partials/nav %>
+<% include ../../partials/scripts %>
+<% include ../../partials/employee_sidebar %>
+
+<div class="main-footer">
+
+  <% if(success != null) { %>
+    <div class="alert alert-success">
+      <%= success %>
+   </div>
+  <% } %>
+
+  <div class="table-wrapper">
+    <table class="table table-hovered">
+      <thead class="thead-dark">
+          <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone No#</th>
+              <th scope="col">Mobile No#</th>
+              <th scope="col">Address</th>
+              <th scope="col">Designation</th>
+              <th scope="col">Department</th>
+              <th scope="col">Rating</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% for(var i = 0; i < employees.length; i++) { %>
+            <tr>
+              <!-- <td><img src='' alt='<%= employees[i].first_name +  employees[i].last_name %>'/></td> -->
+              <td><%= employees[i].last_name %>, <%= employees[i].first_name %></td>
+              <td><%= employees[i].email %></td>
+              <td><%= employees[i].phone %></td>
+              <td><%= employees[i].mobile %></td>
+              <td><%= employees[i].address %></td>
+              <td><%= employees[i].designation %></td>
+              <td><%= employees[i].department %></td>
+              <td>
+                <% if(employees[i].rating == null) { %>
+                    <a href="/employees/rate/<%= employees[i].employee_id %>">Rate Employee</a>
+                <% } else { %>
+                  <%= employees[i].rating %>
+                <% } %>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+        <% include ../../partials/head %>
+<body>
+        <% include ../../partials/nav %>
+        <% include ../../partials/employee_sidebar %>
+
+<div class="main-footer">
+  <% if(errors != null) { %>
+    <div class="alert alert-danger">
+     <ul>
+       <% errors.forEach(function(element) { %>
+         <li><%= element.msg %></li>
+       <% }); %>
+     </ul>
+   </div>
+  <% } %>
+
+<div class="container">
+  <h2>Edit Profile</h2>
+  <form class="form-horizontal" action="../employees/profile" method="post">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="first_name">First Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="first_name" placeholder="First Name" name="first_name"  value="<%= employee[0].first_name %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="middle_name">Middle Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="middle_name" placeholder="Middle Name" name="middle_name"  value="<%= employee[0].middle_name %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="last_name">Last Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="last_name" placeholder="Last Name" name="last_name"  value="<%= employee[0].last_name %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="email" placeholder="Email" name="email" value="<%= employee[0].email %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="address">Address</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="address" placeholder="Address" name="address" value="<%= employee[0].address %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="mobile">Mobile</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="mobile" placeholder="Mobile" name="mobile" value="<%= employee[0].mobile %>">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="phone">Phone</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone" value="<%= employee[0].phone %>">
+      </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="designation">Designation</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="designation" placeholder="Designation" name="designation" value="<%= employee[0].designation %>">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="department">Department</label>
+        <div class="col-sm-10">
+          <select name="department" class="form-control">
+            <% departments.forEach(function(element) { %>
+              <option value="<%= element.department_id %>" <% if(element.department_id == employee[0].department_id) { %>selected<% } %>>
+                <%= element.department %>
+              </option>
+            <% }); %>
+          </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>>
+<% include ../../partials/scripts %>
+<% include ../../partials/footer %>
+
+</body>
+</html>

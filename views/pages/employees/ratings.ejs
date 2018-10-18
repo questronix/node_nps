@@ -1,0 +1,85 @@
+<% include ../../partials/head %>
+<% include ../../partials/nav %>
+<% include ../../partials/scripts %>
+<% include ../../partials/employee_sidebar %>
+
+<div class="main-footer">
+  <% if(success != null) { %>
+    <div class="alert alert-success">
+      <%= success %>
+   </div>
+  <% } %>
+  
+  <div class="table-wrapper">
+    Client Ratings
+    <table class="table table-hovered">
+      <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Project</th>
+            <th scope="col">Rating</th>
+          </tr>
+      </thead>
+      <tbody>
+        <%
+          var length = client_ratings.length;
+          var sum = 0;
+          for(var i = 0; i < length; i++) {
+        %>
+          <tr>
+            <td><%= client_ratings[i].client_name %></td>
+            <td><%= client_ratings[i].project %></td>
+            <td><%= client_ratings[i].rating %></td>
+          </tr>
+        <%
+          sum += client_ratings[i].rating;
+          }
+        %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td class="pull-right">Average Rating</td>
+          <td colspan="1"><%= sum / length %></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="table-wrapper">
+    Employee Ratings
+    <table class="table table-hovered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+          <%
+            var length = employee_ratings.length;
+            var sum = 0;
+            for(var i = 0; i < length; i++) {
+          %>
+            <tr>
+              <td><%= employee_ratings[i].employee_name %></td>
+              <td><%= employee_ratings[i].department %></td>
+              <td><%= employee_ratings[i].rating %></td>
+            </tr>
+            <%
+              sum += employee_ratings[i].rating;
+              }
+            %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td class="pull-right">Average Rating</td>
+            <td colspan="1"><%= sum / length %></td>
+          </tr>
+        </tfoot>
+    </table>
+  </div>
+</div>
+</body>
+</html>

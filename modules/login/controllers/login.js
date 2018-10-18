@@ -47,6 +47,7 @@ exports.submit_login = (req, res, next) => {
                 req.session.user_id = row[0].admin_id;
               } else if(user_type == "employees") {
                 req.session.user_id = row[0].employee_id;
+                req.session.department_id = row[0].department_id;
               } else if(user_type == "clients") {
                 req.session.user_id = row[0].client_id;
               }
