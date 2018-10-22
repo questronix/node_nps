@@ -213,32 +213,41 @@ exports.submit_add_client = (req, res, next) => {
       res.redirect('/admin/clients/add/');
     } else {
       req.getConnection(function(err, connection) {
-        var name = req.body.name;
-        var email = req.body.email;
-        var address = req.body.address;
-        var mobile = req.body.mobile;
-        var project = req.body.project;
+        bcrypt.hash(req.body.password, 10, (err, hash) => {
+          if(err) {
+            return res.status(500).json({error: err});
+          } else {
+            var name = req.body.name;
+            var email = req.body.email;
+            var address = req.body.address;
+            var mobile = req.body.mobile;
+            var project = req.body.project;
+            var password = hash;
 
-        var values = '"' + name + '", ' +
-                    '"' + email + '", ' +
-                    '"' + address + '", ' +
-                    '"' + mobile + '", ' +
-                    '"' + project + '"';
+            var values = '"' + name + '", ' +
+                        '"' + email + '", ' +
+                        '"' + address + '", ' +
+                        '"' + mobile + '", ' +
+                        '"' + password + '", ' +
+                        '"' + project + '"';
 
-        sql = 'INSERT INTO clients(name, email, address, mobile, project) VALUES(' + values + ');';
+            sql = 'INSERT INTO clients(name, email, address, mobile, password, project) VALUES(' + values + ');';
 
-        var query = connection.query(sql, function(error, row) {
-          if(error) res.status(500).json({error: error});
-          else {
-            req.session.success = 'Client added successfully';
-            // redirect
-            res.redirect('/admin/clients');
+            var query = connection.query(sql, function(error, row) {
+              if(error) res.status(500).json({error: error});
+              else {
+                req.session.success = 'Client added successfully';
+                // redirect
+                res.redirect('/admin/clients');
+              }
+            });
+
+            if(err) {
+              res.status(500).json({error: err});
+            }
+
           }
         });
-
-        if(err) {
-          res.status(500).json({error: err});
-        }
       });
     }
   }

@@ -77,10 +77,12 @@ app.set('view engine', 'ejs');
 const loginRoutes = require('./modules/login/routes/login');
 const adminRoutes = require('./modules/admin/routes/admin');
 const employeeRoutes = require('./modules/employees/routes/employees');
+const clientRoutes = require('./modules/clients/routes/clients');
 
 app.use('/', loginRoutes);
 app.use('/admin', adminRoutes);
 app.use('/employees', employeeRoutes);
+app.use('/clients', clientRoutes);
 
 // ================================================================
 // log errors
