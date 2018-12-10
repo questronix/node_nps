@@ -3,7 +3,7 @@ const mysql = require('mysql');
 
 exports.login = (req, res, next) => {
   if(req.session.user_type) {
-    res.redirect(req.session.user_type + '/dashboard');
+    res.redirect(req.session.user_type + '/');
   } else {
     errors = req.session.errors;
     req.session.errors = null;
